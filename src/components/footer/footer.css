@@ -1,0 +1,13 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filters button{
+    margin-left: 10px;
+    
+}
+
+.completedTasks span {
+    font-size: 25px;
+}

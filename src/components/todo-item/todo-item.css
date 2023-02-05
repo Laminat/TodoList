@@ -1,0 +1,22 @@
+.todo-item {
+    border: 1px solid gray;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-item span {
+    margin-left: 10px;
+}
+
+.todo-item button {
+    margin-left: 10px;
+    border: none;
+    background-color: inherit;
+    transition: 0.3s;
+}
+
+.todo-item button:hover {
+    color: red;
+}
