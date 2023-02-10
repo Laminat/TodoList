@@ -53,39 +53,14 @@ function App() {
   }  
 
   const completedTasks = (data) => {
-    let readiness = 0
-    data.forEach(todo => {
-      if(todo.completed === false) {
-        readiness++
+    let readiness = data.reduce((sum, todo) => {
+      if(todo.completed === false){
+        return sum + 1
+      } else {
+        return sum
       }
-      document.getElementById('span').textContent = readiness
-    })
-  }
-
-  const allTodoData = () => {
-    const newState = todoData
-    setTodoData(newState)
-  }
-
-
-  const activeTodoData = (data) => {
-    let newState = []
-    data.forEach(todo => {
-      if (todo.completed === false) {
-        newState.push(todo)
-      }
-    setTodoData(newState)
-    })
-  }
-  const completedTodoData = (data) => {
-    let newState = []
-    data.forEach(todo => {
-      if (todo.completed === true) {
-        newState.push(todo)
-      }
-      setTodoData(newState)
-      completedTasks(data)
-    })
+    }, 0)
+    return readiness
   }
 
   return (
@@ -96,10 +71,7 @@ function App() {
       onChangeCompletedStatus = {changeCompletedStatus}
       onCompletedTasks = {completedTasks}/>
       <Footer onCompletedTasks = {completedTasks}
-      data = {todoData}
-      onActiveTodoData = {activeTodoData}
-      onCompletedTodoData = {completedTodoData}
-      onAllTodoData = {allTodoData}/>
+      data = {todoData}/>
     </div>
   )
 }
